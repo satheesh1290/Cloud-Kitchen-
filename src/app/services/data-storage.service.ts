@@ -6,7 +6,7 @@ import { map, tap } from 'rxjs/operators';
 import { RatingService } from './rating.service';
 import { Rating } from '../models/rating.model';
 import { AuthService } from '../auth/auth.service';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/.env/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService{

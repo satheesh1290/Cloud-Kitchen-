@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { BehaviorSubject, catchError, tap, throwError } from "rxjs";
 import { User } from "../models/user.model";
 import { Router } from "@angular/router";
-import { environment } from "src/environments/environment";
+import { environment } from "src/.env/environments/environment";
 
 export interface AuthResponseData{
     kind:string;

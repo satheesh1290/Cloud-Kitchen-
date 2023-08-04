@@ -43,5 +43,5 @@ testem.log
 Thumbs.db
 
 #Secret
-environments
-.env
+/src/environments
+/src/.env
