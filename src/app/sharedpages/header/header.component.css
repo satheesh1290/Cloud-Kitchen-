@@ -1,0 +1,83 @@
+*{
+    margin:0;
+}
+
+.navbar{
+    margin-bottom:1px;
+    padding:0;
+}
+
+.navbar-expand-lg .navbar-nav .active{
+    color: var(--primary-color);
+    font-weight: bold;
+    /* border:1px solid lightgrey; */
+    text-decoration: underline lightslategray;
+}
+.nav-item a:hover{
+    background-color:var(--secondary-color);
+}
+
+.navbar-brand{
+    font-family:'Dancing Script', cursive;
+    font-size:2em;
+    padding-bottom: 10px;
+   }
+
+   .imglogo{
+    background-image: url("../../images/cooking-icon-png-13.jpg");
+    background-position: center-bottom;
+    background-size: cover;
+    width:50px;
+    height:46px;
+    display:inline-block;
+   }
+
+   .cart-section {
+    /* background-color:gray; */
+    width: 150px;
+    flex-shrink: 1;
+    display: flex;
+    justify-content: flex-end;
+    margin-top:0;
+    margin-bottom:0;
+    padding:0;
+    height:40px;
+  }
+
+   .cart-link {
+    color: white;
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+  }
+  .cart-icon{
+    width:50%;
+  }
+  .cart-text {
+    margin-top: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    color:black;
+    
+  }
+  
+  .cart-quantity {
+    color: rgb(226, 130, 4);
+    font-size: 18px;
+    font-weight: 700;
+  
+    position:absolute;
+    top: 2px;
+    left: 26px;
+    
+    width: 26px;
+    text-align: center;
+  }
+  
+  @media screen and (max-width:1000px){
+    .cart-quantity{
+      width:20px;
+      left:22px;
+    }
+  }

@@ -1,0 +1,17 @@
+.para{
+    font-size:larger;
+    font-weight: bold;
+    word-spacing: 5px;
+    padding:20px;
+    border: 0 solid rgb(85, 78, 78);
+    background-color: lightgray;
+    border-radius: 5px;
+    box-shadow: 7px -5px 10px 0px #4B0082, 11px -9px 10px 0px #0000FF, 16px -14px 10px 0px #00FF00, 20px -17px 10px 0px #FFFF00, 24px -19px 10px 0px #FF7F00, 27px -23px 10px 0px #FF0000, 5px 5px 15px 5px rgba(0,0,0,0);
+}
+
+.spanelement{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    padding:50px;
+    color:#4B0082;
+}

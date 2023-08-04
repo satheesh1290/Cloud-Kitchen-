@@ -1,0 +1,44 @@
+<div class="container mt-4 mb-4">
+    <div class="row">
+        <div class="col-lg-4 product-container" *ngFor="let recipe of recipes; let i=index"> 
+                    <div class="recipeItem">
+                        <div class="recipebox mt-3 mb-3">
+                            <img src="{{recipe.imagePath}}" class="img-fluid" alt="...">
+                            <h2>{{recipe['name']}}</h2>
+                            <p>{{recipe.description}}</p>
+                            <p class="price">{{recipe.price | currency: 'INR'}}</p>                            
+                        </div>
+                        <button class="btn btn-plus" (click)="inc(recipe)">+</button>
+                        <span class="product-quantity-container">{{recipe.quantity}}</span>
+                        <button class="btn btn-minus" (click)="dec(recipe)">-</button>
+                        <a style="text-decoration: none;" class="pe-1 btn btn-info"  [routerLink]="['/menu', i]">Rate us</a>
+                       
+                    </div>
+                   <div class="container" *ngFor="let rating of ratings; let r=index">
+                      <ngb-rating *ngIf="i===r"  [max]="5" [rate]="rating['finalrating']" [readonly]="true"></ngb-rating><span *ngIf="i===r">{{rating['ratedUsers']}}</span>
+                    </div>
+
+                    <div  class="added-to-cart">
+                      <button class="buybtn mb-2" (click)="addtoCart(recipe)">
+                        Add to Cart
+                      </button>
+
+                      <div *ngFor="let rec of newRecipes; let ind=index">
+                        <div class="added-message" *ngIf="rec.Msg && i===ind"><i class="bi bi-check-circle-fill"></i>{{rec.Msg}}</div>
+                      </div>
+                    </div>
+                    
+                    
+        </div>
+       
+    </div>
+    
+</div>
+
+
+
+<!-- <a class="product-rating-container"  *ngFor="let rates of ratings;">
+  <img class="product-rating-stars"
+   src="{{rates.rating + rates.raters['stars'] *10 }}.png">
+   <span class="product-rating-count">{{rates.raters['count']}}</span>
+ </a>  -->

@@ -1,0 +1,113 @@
+<div class="container mt-5 mb-5">
+<app-alert [message]="success" *ngIf="success" (close)="onClose()"></app-alert>
+    <div class="row m-5" >
+        <div class="col-9 cartitem-layout">
+           
+                <div class="row m-2 cartitem">
+                    <div class="col-xs-9">
+                        <a class="list-group-item clearfix m-5" *ngFor="let cart of carts; let i=index" style="cursor:pointer" >
+                            <div class="row">
+                                <span class="col-4">
+                                    <!-- [src]=recipe.imagePath -->
+                                    <img 
+                                    src="{{cart.imagePath}}" 
+                                    alt="{{cart.name}}" width="100px"
+                                    class="img-responsive" style="max-height:100px;">
+                                </span>
+
+                                <div class="col-4">
+                                    <h4 class="list-group-item-heading">{{cart.name}}</h4>
+                                    <p class="list-group-item-text">{{cart.price| currency: 'INR'}}</p>
+                                    <p class="list-group-item-text"> subTotal: {{cart.price * cart.quantity | currency: 'INR'}}</p>
+                                </div>
+                                <span class="col-4">
+                        <p class="list-group-item-heading">
+                          <button class="btn btn-plus" (click)="inc(cart, i)">+</button>
+                          {{cart.quantity}}
+                        <button class="btn btn-minus" (click)="dec(cart, i)">-</button></p>
+                                    <br>
+                                    <span>
+                                        <a type="button" class="btn btn-danger" (click)="onRemove(i)">Remove</a>
+                                    </span>
+                                </span>
+                               
+                          </div>
+                      <hr>
+                        </a>
+                    </div>
+            </div>
+            <!-- <div *ngFor="let cart of carts">
+              <div>{{cart.name}} - {{cart.quantity}}</div>
+            </div> -->
+        </div>
+
+        <div class="col-3 mt-5 payment-layout">
+            <div class="payment-summary">
+                <div class="payment-summary-title">
+                  Order Summary
+                </div>
+            
+                <div class="payment-summary-row">
+                  <div>Items {{cartQuantity || 0}}:</div>
+                  <div class="payment-summary-money">{{totalAmount | currency:'INR'}}</div>
+                </div>
+            
+                <div class="payment-summary-row subtotal-row">
+                  <div>Total before tax:</div>
+                  <div class="payment-summary-money">{{totalAmount | currency:'INR'}}</div>
+                </div>
+            
+                <div class="payment-summary-row">
+                  <div>Estimated tax (10%):</div>
+                  <div class="payment-summary-money">{{totalAmount *0.1 | currency:'INR'}}</div>
+                </div>
+            
+                <div class="payment-summary-row total-row">
+                  <div>Order total:</div>
+                  <div class="payment-summary-money">{{totalAmount + (totalAmount *0.1) | currency:'INR'}}</div>
+                </div>
+
+                <form [formGroup]="addressForm" (ngSubmit)="addressForm.valid && onSubmit()" *ngIf="totalAmount>0">
+                  <div class="form-group">
+                      <label for="username">Name</label>
+                      <input 
+                      type="text"
+                      id="username"
+                      formControlName="name"
+                      class="form-control"
+                      [ngClass]="{'is-invalid': user && user.invalid && user.touched}"
+                      />
+                      <span *ngIf="user && user.invalid && user.touched" style="color:red">Name is Required</span>
+                  </div>
+  
+                  <div class="form-group">
+                      <label for="phone">Phone</label>
+                      <input 
+                      type="number"
+                      id="phone"
+                      formControlName="phone"
+                      class="form-control"
+                      [ngClass]="{'is-invalid':phone && phone.invalid && phone.touched}"
+                      />
+                      <span *ngIf="phone && phone.invalid && phone.touched" style="color:red">Phone number is Required</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea
+                    type="text"
+                    id="address"
+                    formControlName="address"
+                    class="form-control"
+                    [ngClass]="{'is-invalid':address && address.invalid && address.touched}"
+                    ></textarea>
+                    <span *ngIf="address && address.invalid && address.touched" style="color:red">Enter a valid Address</span>
+                </div>
+
+                 <button type="submit" class="btn btn-success m-5" [disabled]="!addressForm.valid">Place Order</button>
+                </form>
+
+            </div>
+            
+        </div>
+    </div>
+</div>
