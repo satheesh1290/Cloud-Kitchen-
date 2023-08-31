@@ -1,3 +1,24 @@
+Created this E-commerce website using Angular framework
+Key contents:
+1.	created the app using services and access those services across the app
+•	Recipe service
+•	Rating service
+•	Cart service
+With the above mentioned service handled the CRUD operations.
+•	Data-storage service
+Used to fetch and store datas to and from the database
+2.	Through app routing module handled lazy loading and routes.
+3.	Recipe resolver service to resolve the UI to load once data fetched for the page.
+4.	Menu page displays the list of products and menu details contain the product description with Rating page
+5.	Authentication and Database handled with firebase and also hosted the website using firebase
+6.	Two other components Recipe edit and Recipe new were authenticated to a particular user where only he can edit or can add a new product to the app
+7.	Using Cart service handled the updation of cart items and total price accordingly in the summary page.
+
+Website Link:
+https://cloud-kitchen-5fd93.web.app/
+
+
+
 # Ck
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
